@@ -1,0 +1,5 @@
+{
+  "name": "Q-Learning Maze Explorer",
+  "description": "A 2.5D visualization of an AI agent learning to navigate a procedurally generated maze using Q-Learning and the Bellman equation.",
+  "requestFramePermissions": []
+}
