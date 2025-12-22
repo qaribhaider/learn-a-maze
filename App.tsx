@@ -325,7 +325,45 @@ const App: React.FC = () => {
           setGridState(newGrid);
           setStartPos(newStart);
           setGoalPos(newGoal);
-          resetRunner();
+
+          // Reset positions with new start position
+          agentPosInternal.current = { ...newStart };
+          setAgentPosState({ ...newStart });
+
+          // Reset exploration
+          exploredCellsInternal.current = new Set([
+            `${newStart.x},${newStart.y}`,
+          ]);
+          setExploredCellsState(new Set(exploredCellsInternal.current));
+
+          // Reset Agent Knowledge and Traits
+          agentRef.current.resetQTable();
+          agentRef.current.setParameters(
+            DEFAULT_ALPHA,
+            DEFAULT_GAMMA,
+            DEFAULT_EPSILON
+          );
+
+          // Reset UI inputs
+          setAlpha(DEFAULT_ALPHA);
+          setGamma(DEFAULT_GAMMA);
+          setInitialEpsilon(DEFAULT_EPSILON);
+          setSpeedValue(DEFAULT_SPEED);
+
+          const freshState: SimulationState = {
+            episode: 1,
+            step: 0,
+            totalReward: 0,
+            epsilon: DEFAULT_EPSILON,
+            isGoalReached: false,
+            bestStepCount: null,
+          };
+          simInternalState.current = freshState;
+          setSimUIState(freshState);
+
+          setQTableState({});
+          setIsPlaying(false);
+
           setView("simulator");
         }}
         onCancel={() => setView("simulator")}
