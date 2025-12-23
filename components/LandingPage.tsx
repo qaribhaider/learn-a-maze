@@ -80,6 +80,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
           >
             Launch App
           </button>
+          <a
+            href="https://github.com/qaribhaider/learn-a-maze"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 bg-gray-600 hover:bg-cyan-500 text-white rounded-full font-bold text-xs uppercase tracking-widest transition-all shadow-lg shadow-cyan-900/20"
+          >
+            GitHub
+          </a>
         </div>
       </nav>
 
