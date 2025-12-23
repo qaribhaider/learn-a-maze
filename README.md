@@ -39,6 +39,41 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173) in your browser to view the app.
 
+## Testing
+
+This project includes comprehensive unit tests to ensure code quality and prevent regressions during dependency updates.
+
+### Running Tests
+
+```bash
+# Run tests in watch mode (interactive)
+npm test
+
+# Run tests once (CI mode)
+npm run test:run
+
+# Run tests with UI
+npm run test:ui
+
+# Generate coverage report
+npm run test:coverage
+```
+
+### Test Coverage
+
+The test suite includes:
+
+- **79 unit tests** covering core functionality
+- **MazeGenerator tests** (15 tests) - validates maze generation, deterministic behavior, and path connectivity
+- **QLearningAgent tests** (41 tests) - verifies Q-learning algorithm, Bellman equation implementation, and learning parameters
+- **LandingPage tests** (23 tests) - ensures UI components render correctly and navigation works
+
+### CI/CD Integration
+
+- **GitHub Actions** workflow runs tests automatically on every push and pull request
+- **Dependabot** is configured to create automated PRs for dependency updates
+- Tests must pass before merging to ensure stability
+
 ## Build for Production
 
 Create an optimized production build:
